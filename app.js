@@ -34,7 +34,7 @@ db.connect((err) => {
   console.log("Connected to the database!");
 });
 
-console.log("Database URL:", dbUrl);
+
 
 const PORT = 2025;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
@@ -262,149 +262,7 @@ app.delete('/student/:id', (req, res) => {
 
 
 
-// // ATTENDANCE ROUTES
-// app.get('/attendance', (req, res) => {
-//     let attendance = `SELECT * FROM ATTENDANCE`;
-//     db.query(attendance, (err, result) => {
-//         if (err) {
-//             console.log(err);
-//             res.status(500).send('Error fetching attendance records');
-//         } else {
-//             res.json(result);
-//             console.table(result);
-//         }
-//     });
-// });
 
-// app.get('/attendance/:student_id', (req, res) => {
-//     const { student_id } = req.params;
-//     let attendance = `SELECT * FROM ATTENDANCE WHERE STUDENT_ID = ?`;
-//     db.query(attendance, [student_id], (err, result) => {
-//         if (err) {
-//             console.log(err);
-//             res.status(500).send('Error fetching attendance records for the student');
-//         } else {
-//             res.json(result);
-//             console.table(result);
-//         }
-//     });
-// });
-
-// app.post('/attendance', (req, res) => {
-//     const attendance = req.body;
-//     db.query('INSERT INTO ATTENDANCE SET ?', attendance, (err) => {
-//         if (err) {
-//             console.log(err);
-//             res.status(500).send('Error adding attendance record');
-//         } else {
-//             res.send('Attendance record added');
-//         }
-//     });
-// });
-
-// app.put('/attendance/:attendance_id', (req, res) => {
-//     const { attendance_id } = req.params;
-//     const attendance = req.body;
-//     db.query('UPDATE ATTENDANCE SET ? WHERE ATTENDANCE_ID = ?', [attendance, attendance_id], (err) => {
-//         if (err) {
-//             console.log(err);
-//             res.status(500).send('Error updating attendance record');
-//         } else {
-//             res.send('Attendance record updated successfully');
-//         }
-//     });
-// });
-
-// app.delete('/attendance/:attendance_id', (req, res) => {
-//     const { attendance_id } = req.params;
-//     db.query('DELETE FROM ATTENDANCE WHERE ATTENDANCE_ID = ?', [attendance_id], (err) => {
-//         if (err) {
-//             console.log(err);
-//             res.status(500).send('Error deleting attendance record');
-//         } else {
-//             res.send('Attendance record deleted successfully');
-//         }
-//     });
-// });
-
-// // PAYMENT METHODS
-// app.get('/payments', (req, res) => {
-//     let payments = `SELECT * FROM PAYMENT`;
-//     db.query(payments, (err, result) => {
-//         if (err) {
-//             console.log(err);
-//             res.status(500).send('Error fetching payment records');
-//         } else {
-//             res.json(result);
-//             console.table(result);
-//         }
-//     });
-// });
-
-// app.get('/payments/:student_id', (req, res) => {
-//     const { student_id } = req.params;
-//     let payments = `SELECT * FROM PAYMENT WHERE STUDENT_ID = ?`;
-//     db.query(payments, [student_id], (err, result) => {
-//         if (err) {
-//             console.log(err);
-//             res.status(500).send('Error fetching payment records for the student');
-//         } else {
-//             res.json(result);
-//             console.table(result);
-//         }
-//     });
-// });
-
-// app.post('/payments', (req, res) => {
-//     const payment = req.body;
-//     db.query('INSERT INTO PAYMENT SET ?', payment, (err) => {
-//         if (err) {
-//             console.log(err);
-//             res.status(500).send('Error adding payment record');
-//         } else {
-//             res.send('Payment record added');
-//         }
-//     });
-// });
-
-// app.put('/payments/:payment_id', (req, res) => {
-//     const { payment_id } = req.params;
-//     const payment = req.body;
-//     db.query('UPDATE PAYMENT SET ? WHERE PAYMENT_ID = ?', [payment, payment_id], (err) => {
-//         if (err) {
-//             console.log(err);
-//             res.status(500).send('Error updating payment record');
-//         } else {
-//             res.send('Payment record updated successfully');
-//         }
-//     });
-// });
-
-// // Uncommented and fixed deletion route
-// app.delete('/payments/:payment_id', (req, res) => {
-//     const { payment_id } = req.params;
-//     db.query('DELETE FROM PAYMENT WHERE PAYMENT_ID = ?', [payment_id], (err) => {
-//         if (err) {
-//             console.log(err);
-//             res.status(500).send('Error deleting payment record');
-//         } else {
-//             res.send('Payment record deleted successfully');
-//         }
-//     });
-// });
-
-// // ALTER TABLE QUERY
-// const query = `ALTER TABLE STUDENTS 
-//                     DROP COLUMN AGE` 
-
-// db.query(query, (err, result) => {
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log('Columns removed successfully');
-//     }
-// });
- //geting student
 
 
 app.post("/attendance", (req, res) => {
