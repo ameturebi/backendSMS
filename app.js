@@ -22,22 +22,18 @@ app.use(session({
     cookie: { maxAge: 60000 }
 }));
 
-const db = mysql.createConnection({ 
-    host: "localhost", 
-    user: "root", 
-    password: "", 
-    database:"SMS"
-})
-db.connect((err,result) => {
-    if (err){
-        console.log(err)
-    }
-    else{
-        console.log('connected')
-    }
-    
+
+
+const db = mysql.createConnection(process.env.DATABASE_URL);
+
+db.connect((err) => {
+  if (err) {
+    console.error("Database connection failed:", err);
+    return;
+  }
+  console.log("Connected to the database!");
 });
-const dbUrl = process.env.DATABASE_URL;
+
 console.log("Database URL:", dbUrl);
 
 const PORT = 2025;
