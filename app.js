@@ -21,6 +21,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge: 60000 }
 }));
+
 const db = mysql.createConnection({ 
     host: "localhost", 
     user: "root", 
@@ -36,6 +37,9 @@ db.connect((err,result) => {
     }
     
 });
+const dbUrl = process.env.DATABASE_URL;
+console.log("Database URL:", dbUrl);
+
 const PORT = 2025;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
@@ -136,7 +140,7 @@ function isAuthenticated(req, res, next) {
     }
 }
 app.get('/', (req, res) => {
-    console.log(`${req},${res}`)
+    res.send("Server is running!");
     res.sendFile(path.join(__dirname, 'Frontend', 'login.html'));
 });
 
