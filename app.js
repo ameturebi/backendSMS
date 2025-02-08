@@ -137,7 +137,7 @@ function isAuthenticated(req, res, next) {
 }
 app.get('/', (req, res) => {
     res.send("Server is running!");
-    res.sendFile(path.join(__dirname, 'Frontend', 'login.html'));
+    res.sendFile(path.join(__dirname, 'Frontend', 'index.html'));
 });
 
 app.get('/dashboard', (req, res) => {
