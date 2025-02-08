@@ -152,6 +152,7 @@ app.get('/student', (req, res) => {
             res.json(result);
             // console.table(result);
         }
+         res.json({ message: 'Students API is working!' });
     });
 });
 
